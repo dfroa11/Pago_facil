@@ -73,31 +73,48 @@ Route::get('arreglosm',function(){
 
     $paises =["Colombia"=>["capital"=>"Bogota",
                           "Moneda"=>"peso",
-                          "poblacion"=>50],
+                          "poblacion"=>50,
+                          "ciudades"=>["Cali","Medellin","Cartagena"]
+                        
+                        ],
               "Peru"=>["capital"=>"Lima",
                        "Moneda"=>"sol",
-                       "poblacion"=>32],
+                       "poblacion"=>32,
+                       "ciudades"=>["Piura","Cusco","Piura"] 
+                         ],
               "Bolivia"=>["capital"=>"La paz",
                           "Moneda"=>"peso Boliviano",
-                          "poblacion"=>11],
+                          "poblacion"=>11,
+                            "ciudades"=>["Cochabamba","Santacruz","Oruro"]
+                        ],
               "Argentina"=>["capital"=>"Buenos Aires",
                             "Moneda"=>"",
-                            "poblacion"=>""],
+                            "poblacion"=>"",
+                            "ciudades"=>["Buenos Aires","Córdoba","Lanús"]                        
+                        ],
               "Venezuela"=>["capital"=>"Caracas",
                             "Moneda"=>"",
-                            "poblacion"=>""],
+                            "poblacion"=>"",
+                            "ciudades"=>["Maracaibo","Valencia","Guayana"]
+                        ],
               "Brazil"=>["capital"=>"Sao Paulo",
                         "Moneda"=>"",
-                        "poblacion"=>""],
+                        "poblacion"=>"",
+                        "ciudades"=>["Río de Janeiro","Brasilia","Fortaleza"]
+                    ],
               "Paraguay"=>["capital"=>"Asuncion",
                            "Moneda"=>"",
-                           "poblacion"=>""],
+                           "poblacion"=>"",
+                           "ciudades"=>["Luque","Encarnación","Itauguá"]
+                        ],
               "Uruguay"=>["capital"=>"Montevideo",
                           "Moneda"=>"",
-                          "poblacion"=>""]
+                          "poblacion"=>"",
+                          "ciudades"=>["Rivera","Maldonado","Tacuarembó"]
+                          ]
             ];
 
-    echo"<pre>";
+/*    echo"<pre>";
     var_dump($paises);
     echo"</pre>";
 //recorrer simple
@@ -124,5 +141,10 @@ foreach($paises as $pais => $informacion){
 
 
 
-}
+}*/
+
+//mostrar la vista
+return view('paises')
+            ->with('paises',$paises);
+
 });
