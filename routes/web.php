@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Producto;
 
 /*
 |--------------------------------------------------------------------------
@@ -129,7 +130,10 @@ foreach($paises as $pais => $informacion){
 
 }
 //recorrer con doble foreach
-foreach($paises as $pais => $informacion){
+foreach($paises as $
+
+
+=> $informacion){
     echo"<h1> $pais</h1>";
     foreach ($informacion as $clave =>$valor){
         echo "$clave : $valor";
@@ -147,4 +151,36 @@ foreach($paises as $pais => $informacion){
 return view('paises')
             ->with('paises',$paises);
 
+});
+
+
+route::get('pruebaprod',function(){
+
+    //insertar producto 
+    $p =new producto();
+    //crear atributos 
+    $p->nombre ="bicicleta";
+    $p->valor_unitario =450.897;
+    //guardar en BD
+    $p->save();
+
+});
+
+route::get('nuevoproducto',function(){
+
+    //mostrar el formulario de guardar producto
+    return view('productos.crear');
+});
+
+
+route::post('guardarproducto',function(){
+
+    //recibir los datos que vienen desde formulario
+    $p =new producto();
+    //crear atributos 
+    $p->nombre =$_POST["nombre"];
+    $p->valor_unitario =$_POST["valor"];
+    //guardar en BD
+    $p->save();
+    echo "Producto registrado";
 });
